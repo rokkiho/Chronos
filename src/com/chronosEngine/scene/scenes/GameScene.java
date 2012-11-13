@@ -5,8 +5,8 @@ import com.chronosEngine.scene.Scene;
 
 public class GameScene extends Scene{
 
-	public GameScene(int id, Game gameRef) {
-		super(id, gameRef);
+	public GameScene(Game gameRef) {
+		super(gameRef);
 	}
 
 	public void Update() {

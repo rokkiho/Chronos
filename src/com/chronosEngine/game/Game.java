@@ -12,6 +12,7 @@ import javax.swing.JFrame;
 
 import com.chronosEngine.resource.ImageResource;
 import com.chronosEngine.resource.ResourceLoader;
+import com.chronosEngine.scene.Scenes;
 import com.chronosEngine.sprite.SpriteFont;
 import com.chronosEngine.state.StateManager;
 import com.chronosEngine.state.states.GamePlay;
@@ -35,6 +36,8 @@ public class Game extends Canvas implements Runnable{
 	
 	public MainMenu mainMenu;
 	public GamePlay gamePlay;
+	
+	public Scenes scenes = new Scenes(this);
 	
 	public void init(){
 		screen = new Screen(width, height);

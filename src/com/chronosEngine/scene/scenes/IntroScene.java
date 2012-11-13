@@ -5,13 +5,14 @@ import java.awt.event.KeyEvent;
 import com.chronosEngine.component.Dialogue;
 import com.chronosEngine.game.Game;
 import com.chronosEngine.scene.Scene;
+import com.chronosEngine.scene.Scenes;
 
 public class IntroScene extends Scene{
 	private Dialogue[] dialogue = new Dialogue[2];
 	private int currDialogue;
 
-	public IntroScene(int id, Game gameRef) {
-		super(id, gameRef);
+	public IntroScene(Game gameRef) {
+		super(gameRef);
 		
 		dialogue[0] = new Dialogue();
 		{
@@ -39,7 +40,7 @@ public class IntroScene extends Scene{
 			}
 			if(currDialogue > dialogue.length - 1){
 				currDialogue = dialogue.length - 1;
-				finished = true;
+				gameRef.gamePlay.nextScene = Scenes.game;
 			}
 		}
 	}
