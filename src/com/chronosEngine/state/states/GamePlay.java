@@ -6,12 +6,25 @@ import com.chronosEngine.scene.Scenes;
 import com.chronosEngine.state.State;
 
 public class GamePlay extends State{
+	public enum gameInitState{
+		load, newGame
+	}
+	
 	public Scene nextScene;
 
 	public GamePlay(Game gameRef) {
 		super(gameRef);
-		
-		nextScene = Scenes.intro;
+	}
+	
+	public void init(gameInitState state){
+		switch(state){
+		case load:
+			nextScene = Scenes.game;
+			break;
+		case newGame:
+			nextScene = Scenes.intro;
+			break;
+		}
 	}
 
 	public void Update() {

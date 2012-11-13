@@ -9,6 +9,7 @@ import com.chronosEngine.resource.ResourceLoader;
 import com.chronosEngine.sprite.Sprite;
 import com.chronosEngine.sprite.SpriteFont;
 import com.chronosEngine.state.State;
+import com.chronosEngine.state.states.GamePlay.gameInitState;
 
 public class MainMenu extends State{
 	private Sprite logo;
@@ -39,6 +40,11 @@ public class MainMenu extends State{
 			}
 			if(menu.getCurrMenu() == menu.indexOf("New Game")){
 				gameRef.stateManager.setCurrentState(gameRef.gamePlay);
+				gameRef.gamePlay.init(gameInitState.newGame);
+			}
+			if(menu.getCurrMenu() == menu.indexOf("Continue")){
+				gameRef.stateManager.setCurrentState(gameRef.gamePlay);
+				gameRef.gamePlay.init(gameInitState.load);
 			}
 		}
 	}

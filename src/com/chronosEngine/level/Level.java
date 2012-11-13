@@ -17,7 +17,7 @@ public class Level {
 	
 	public void genTestLevel(){
 		width = 30;
-		height = 40;
+		height = 30;
 		
 		tiles = new byte[width][height];
 		
@@ -39,8 +39,18 @@ public class Level {
 	}
 	
 	public void Draw(){
-		for(int y=0;y<height;y++){
-			for(int x=0;x<width;x++){
+		int xMin = ((gameRef.camera.x + gameRef.camera.xMin) >> modifier);
+		int xMax = ((gameRef.camera.x + gameRef.camera.xMax) >> modifier);
+		int yMin = ((gameRef.camera.y + gameRef.camera.yMin) >> modifier);
+		int yMax = ((gameRef.camera.y + gameRef.camera.yMax) >> modifier);
+		
+		if(xMin < 0) xMin = 0;
+		if(xMax >= width) xMax = width - 1;
+		if(yMin < 0) yMin = 0;
+		if(yMax >= height) yMax = height - 1;
+		
+		for(int y=yMin;y<=yMax;y++){
+			for(int x=xMin;x<=xMax;x++){
 				getTile(x, y).Draw(gameRef.screen, x << modifier, y << modifier, gameRef.camera);
 			}
 		}

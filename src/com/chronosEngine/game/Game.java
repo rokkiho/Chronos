@@ -54,8 +54,6 @@ public class Game extends Canvas implements Runnable{
 		stateManager.addState(gamePlay);
 		
 		stateManager.setCurrentState(mainMenu);
-		
-		SpriteFont.loadFont((ImageResource)ResourceLoader.getResource("font"));
 	}
 	
 	public void loadContent(){
@@ -63,6 +61,8 @@ public class Game extends Canvas implements Runnable{
 		ResourceLoader.loadImage("/font.png", "font");
 		ResourceLoader.loadImage("/arrow.png", "arrow");
 		ResourceLoader.loadImage("/tile_sheet.png", "tileSheet");
+		
+		SpriteFont.loadFont((ImageResource)ResourceLoader.getResource("font"));
 	}
 	
 	synchronized public void start(){

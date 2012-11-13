@@ -16,6 +16,6 @@ public class Camera {
 		this.xMin = 0;
 		this.xMax = screen.width;
 		this.yMin = 0;
-		this.yMin = screen.height;
+		this.yMax = screen.height;
 	}
 }
